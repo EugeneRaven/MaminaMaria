@@ -11,6 +11,6 @@ if __name__=='__main__':
     arguments = numpy.arange(0, 200, 0.1) #Создание массива значений a, от которых будем вычислять y(a) из чисел от 0 до 200 с шагом 0.1.
     mpp.plot(
         arguments,
-        [math.sin(a) * math.sin(a/20.0) for a in arguments] #При помощи matplotlib строим график sin(a)*sin(a/20) для каждого a.
+        [math.sin(a) * math.sin(a/20.0) for a in arguments] #При помощи matplotlib строим график sin(a)*sin(a/20) для каждого a из массива arguments.
     )
     mpp.show()#Отобразить построенное.
