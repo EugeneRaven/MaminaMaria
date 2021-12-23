@@ -11,6 +11,8 @@ def p(a):
         check = False
     elif a < 2:
         check = False
+    elif a == 2:
+        check = True
     else:
         check = True
     return check
