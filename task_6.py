@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-
-"""
-Реализация алгоритма Рабина-Карпа с модульными тестами
-"""
-
 import unittest
 
 def rabin_karp(text, pattern):
@@ -23,12 +17,15 @@ def rabin_karp(text, pattern):
 
     # Менять отсюда =) ---- vvvvv ----
 
-    for i in range(len(text)-len(pattern)):
-        for j in range(len(pattern)):
-            count = 0
-            if pattern != text[i:i+j]:
-                break
-            result.append(i)
+    a = len(text)
+    b = len(pattern)
+    if b == 0:
+        for j in range(a):
+            result.append(j)
+    else:
+        for i in range(a - b + 1):
+            if text[i:(i + b)] == pattern:
+                result.append(i)
 
     # Менять до сюда =) ---- ^^^^^ ----
     return result
@@ -84,11 +81,5 @@ class RabinKarpTest(unittest.TestCase):
             msg="Пустая строка должна находиться везде"
         )
 
-# Должно выдать:
-# --------------
-# Ran ... tests in ...s
-# OK
-
-# Запуск тестов
 if __name__ == '__main__':
     unittest.main()
